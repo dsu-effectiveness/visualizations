@@ -31,10 +31,11 @@ INNER JOIN stvterm b
         ON f.sirasgn_pidm = k.spriden_pidm
      WHERE a.ssbsect_ssts_code = 'A'
        AND f.sirasgn_primary_ind = 'Y'
+       AND a.ssbsect_term_code = '202030'
        AND j.scbcrse_eff_term = (SELECT MAX(aa.scbcrse_eff_term)
                                     FROM scbcrse aa
-                                   WHERE aa.scbcrse_eff_term = 202030
-                                     AND j.scbcrse_eff_term = aa.scbcrse_eff_term
+                                   WHERE aa.scbcrse_eff_term <= a.ssbsect_term_code
+                                     AND j.scbcrse_subj_code = aa.scbcrse_subj_code
                                      AND j.scbcrse_crse_numb = aa.scbcrse_crse_numb)
   GROUP BY b.stvterm_desc,
        j.scbcrse_eff_term,
