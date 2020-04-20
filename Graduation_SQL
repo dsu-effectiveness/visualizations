@@ -4,7 +4,7 @@
          b.shrdgmr_term_code_grad,
          b.shrdgmr_grad_date,
          c.stvcoll_code,
-         CASE c.stvoll_desc
+         CASE c.stvcoll_desc
               WHEN 'Mathematics' THEN 'Coll of Sci, Engr & Tech'
               WHEN '* Natural Sciences' THEN 'Coll of Sci, Engr & Tech'
               WHEN '*Education/Family Studies/PE' THEN 'College of Education'
